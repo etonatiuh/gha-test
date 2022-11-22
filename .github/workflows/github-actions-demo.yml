@@ -2,9 +2,10 @@ name: GitHub Actions Demo
 run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
 on: [push]
 jobs:
-  Explore-GitHub-Actions:
+  vars:
     runs-on: ubuntu-latest
     steps:
+      - run: echo "$GITHUB_REF_NAME"
       - run: echo "the sha of the commit is ${{ github.sha }}"
       - run: echo "the ref_name is ${{ github.ref_name }}"
       - run: 'echo "${{ github.sha }}" | cut -c 1-7'
