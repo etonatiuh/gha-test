@@ -7,4 +7,5 @@ jobs:
     steps:
       - run: echo "the sha of the commit is ${{ github.sha }}"
       - run: echo "the ref_name is ${{ github.ref_name }}"
+      - run: 'echo "${{ github.sha }}" | cut -c 1-7'
       - run: echo "the whole github env is ${{ toJSON(github) }} !"
