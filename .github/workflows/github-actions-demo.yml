@@ -9,7 +9,7 @@ jobs:
       - run: echo "the sha of the commit is ${{ github.sha }}"
       - run: echo "the ref_name is ${{ github.ref_name }}"
       - run: 'echo "shortened_sha=$(echo ${{ github.sha }} | cut -c 1-7)" >> $GITHUB_ENV'
-      - run: echo "cleaned_ref_name=$(echo ${{ github.ref_name }} | tr '/' '-')"" >> $GITHUB_ENV"
+      - run: "echo \"cleaned_ref_name=$(echo ${{ github.ref_name }} | tr '/' '-')\" >> $GITHUB_ENV"
       - run: 'echo ${{ env.shortened_sha }}'
       - run: 'echo ${{ env.cleaned_ref_name }}'
       - run: echo "the whole github env is ${{ toJSON(github) }} !"
