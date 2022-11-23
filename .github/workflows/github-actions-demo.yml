@@ -29,7 +29,8 @@ jobs:
     steps:
       - name: checkout project
         uses: actions/checkout@v2
-        ref: ''
+        with:
+          ref: ''
       - run: echo "${{  }}"
       - run: echo "$GITHUB_REF_NAME"
       - run: echo "the sha of the commit is ${{ github.sha }}"
