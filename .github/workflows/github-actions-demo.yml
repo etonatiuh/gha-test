@@ -8,7 +8,8 @@ jobs:
       - run: echo "$GITHUB_REF_NAME"
       - run: echo "the sha of the commit is ${{ github.sha }}"
       - run: echo "the ref_name is ${{ github.ref_name }}"
-      - run: |
+      - name: set environment variables
+        run: |
           echo "shortened_sha=$(echo ${{ github.sha }} | cut -c 1-7)" >> $GITHUB_ENV
           echo "cleaned_ref_name=$(echo ${{ github.ref_name }} | tr '/' '-')" >> $GITHUB_ENV
           echo "my_tag=${{ env.cleaned_ref_name }}-${{ env.shortened_sha }}" >> $GITHUB_ENV
