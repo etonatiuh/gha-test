@@ -1,6 +1,27 @@
 name: GitHub Actions Demo
 run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
 on: [push]
+workflow_dispatch:
+  inputs:
+    docker_tag:
+      description: "Which image do you want to deploy?"
+      required: true
+      default: newest
+    int:
+      type: boolean
+      description: "Deploy to INT?"
+      required: false
+      default: false
+    pre:
+      type: boolean
+      description: "Deploy to PRE?"
+      required: false
+      default: false
+    prod:
+      type: boolean
+      description: "Deploy to PROD?"
+      required: false
+      default: false
 jobs:
   vars:
     runs-on: ubuntu-latest
