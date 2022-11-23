@@ -11,17 +11,13 @@ jobs:
       - run: 'echo "shortened_sha=$(echo ${{ github.sha }} | cut -c 1-7)" >> $GITHUB_ENV'
       - run: "echo \"cleaned_ref_name=$(echo ${{ github.ref_name }} | tr '/' '-')\" >> $GITHUB_ENV"
       - run: 'echo "my_tag=${{ env.cleaned_ref_name }}-${{ env.shortened_sha }}" >> $GITHUB_ENV'
-      - name: if branch main
-        if: ${{ github.ref_name }} == "main"
-        run: echo on branch main
-      - name: if not branch main
-        if: "${{ github.ref_name }} != 'main'"
-        run: echo not on branch main
       - shell: bash
         run: |
-          bla=blablabla
-          echo $bla
-          echo "blubb=${{ env.my_tag }}" >> $GITHUB_ENV
+          if test ${{ env.cleaned_ref_name }} = main; then
+            echo "on branch main";
+          else
+            echo "not on branch main";
+          fi
       - name: show some variables
         run: |
           echo ${{ env.shortened_sha }}
