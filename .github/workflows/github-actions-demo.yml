@@ -30,7 +30,6 @@ jobs:
       - uses: actions/checkout@v2
         with:
           ref: 'neraitudeu'
-      - run: echo "${{  }}"
       - run: echo "$GITHUB_REF_NAME"
       - run: echo "the sha of the commit is ${{ github.sha }}"
       - run: echo "the ref_name is ${{ github.ref_name }}"
