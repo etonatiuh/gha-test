@@ -4,7 +4,7 @@ on:
   push:
   workflow_dispatch:
     inputs:
-      docker_tag:
+      commit_id:
         description: "Which image do you want to deploy?"
         required: true
         default: newest
@@ -27,6 +27,10 @@ jobs:
   vars:
     runs-on: ubuntu-latest
     steps:
+      - name: checkout project
+        uses: actions/checkout@v2
+        ref: ''
+      - run: echo "${{  }}"
       - run: echo "$GITHUB_REF_NAME"
       - run: echo "the sha of the commit is ${{ github.sha }}"
       - run: echo "the ref_name is ${{ github.ref_name }}"
