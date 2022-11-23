@@ -27,8 +27,7 @@ jobs:
   vars:
     runs-on: ubuntu-latest
     steps:
-      - name: checkout project
-        uses: actions/checkout@v2
+      - uses: actions/checkout@v2
         with:
           ref: 'neraitudeu'
       - run: echo "${{  }}"
